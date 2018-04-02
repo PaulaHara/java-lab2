@@ -4,7 +4,7 @@ import javaLab.regions.Country;
 import javaLab.regions.Province;
 
 /**
- * Created by paula on 01/04/18.
+ * @author paulahara
  */
 public class main {
 

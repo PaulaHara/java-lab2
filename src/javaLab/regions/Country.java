@@ -1,12 +1,15 @@
 package javaLab.regions;
 
 /**
- * Created by paula on 01/04/18.
+ * @author paulahara
  */
 public class Country {
     private String name = "Canada";
     private Province[] provinces = new Province[10];
 
+    /**
+     * Set the array of provinces with the ten provinces of Canada.
+     */
     public Country(){
         provinces[0] = new Province("Alberta", "Edmonton", 4);
         provinces[1] = new Province("British Columbia", "Victoria", 4);
@@ -20,12 +23,22 @@ public class Country {
         provinces[9] = new Province("Saskatchewan", "Regina", 1);
     }
 
+    /**
+     * Print the details of all provinces of the array.
+     */
     public void displayAllProvinces(){
         for(Province province : provinces){
             System.out.println(province.getDetails());
         }
     }
 
+    /**
+     * Count the number of provinces that has a population number between min and max (include).
+     *
+     * @param min
+     * @param max
+     * @return the number of provinces with population between min and max
+     */
     public int howManyHaveThisPopulation(int min, int max){
         int count = 0;
 
@@ -36,5 +49,37 @@ public class Country {
         }
 
         return count;
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     *
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @param provinces
+     */
+    public void setProvinces(Province[] provinces) {
+        this.provinces = provinces;
+    }
+
+    /**
+     *
+     * @return provinces
+     */
+    public Province[] getProvinces() {
+        return provinces;
     }
 }

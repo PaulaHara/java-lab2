@@ -1,7 +1,7 @@
 package javaLab.regions;
 
 /**
- * Created by paula on 01/04/18.
+ * @author paulahara
  */
 public class Province {
     private String name;
@@ -12,6 +12,13 @@ public class Province {
     public static final String DEFAULT_PROVINCE = "British Columbia";
     public static final String DEFAULT_CAPITAL = "Victoria";
 
+    /**
+     * If some parameter is not valid, the default values will be given.
+     *
+     * @param name
+     * @param capital
+     * @param populationInMillions
+     */
     public Province(String name, String capital, int populationInMillions){
         if(isValidProvince(name) && isValidCapitalCity(capital) && isValidPopulation(populationInMillions)){
             this.name = name;
@@ -24,36 +31,69 @@ public class Province {
         }
     }
 
+    /**
+     * Set the variables with the default values.
+     */
     public Province(){
         this.setName(DEFAULT_PROVINCE);
         this.setCapital(DEFAULT_CAPITAL);
         this.setPopulationInMillions(DEFAULT_POPULATION_MILLIONS);
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param capital
+     */
     public void setCapital(String capital) {
         this.capital = capital;
     }
 
+    /**
+     *
+     * @return capital
+     */
     public String getCapital() {
         return capital;
     }
 
+    /**
+     *
+     * @param populationInMillions
+     */
     public void setPopulationInMillions(int populationInMillions) {
         this.populationInMillions = populationInMillions;
     }
 
+    /**
+     *
+     * @return populationInMillions
+     */
     public int getPopulationInMillions() {
         return populationInMillions;
     }
 
+    /**
+     * Verify if a province is valid, if it exists in the array.
+     *
+     * @param province
+     * @return true if it's valid, false if it's not
+     */
     private boolean isValidProvince(String province){
         String[] provinces = {"Alberta", "British Columbia", "Manitoba", "New Brunswick",
                 "Newfoundland and Labrador", "Nova Scotia", "Ontario", "Prince Edward Island",
@@ -70,6 +110,12 @@ public class Province {
         return false;
     }
 
+    /**
+     * Verify if a capital is valid, if it exists in the array.
+     *
+     * @param capital
+     * @return true if it's valid, false if it's not
+     */
     private boolean isValidCapitalCity(String capital){
         String[] capitals = {"Edmonton", "Victoria", "Winnipeg", "Fredericton",
                 "St. John's", "Halifax", "Toronto", "Charlottetown",
@@ -84,6 +130,12 @@ public class Province {
         return false;
     }
 
+    /**
+     * Verify if population is valid, must be between 4 and 38.
+     *
+     * @param population
+     * @return true if it's valid, false if it's not
+     */
     private boolean isValidPopulation(int population){
         if(population >= 4 && population <= 38){
             return true;
@@ -91,6 +143,10 @@ public class Province {
         return false;
     }
 
+    /**
+     *
+     * @return string with all the details of the province
+     */
     public String getDetails(){
         return "The capital of "+this.getName()+" (pop. "+this.getPopulationInMillions()+" million) " +
                 "is "+this.getCapital();
